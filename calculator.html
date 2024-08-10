@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+   
+    <div class="calculator">
+        <div class="screen" >
+            <input type="text" id = 'result' >
+        </div>
+        <div class="display">
+            <input type="button" value = 'C' onclick = "clear()">
+            <input type="button" value = '%' onclick = "Solve('%')">
+            <input type="button" value = '←' onclick ="Back('<-')">
+            <input type="button" value = '/' onclick = "Solve('/')">
+            <br>
+            <input type="button" value = '7' onclick = "Solve('7')">
+            <input type="button" value = '8' onclick = "Solve('8')">
+            <input type="button" value = '9' onclick = "Solve('9')">
+            <input type="button" value = 'x' onclick = "Solve('*')">
+            <br>
+            <input type="button" value = '4' onclick = "Solve('4')">
+            <input type="button" value = '5' onclick = "Solve('5')">
+            <input type="button" value = '6' onclick = "Solve('6')">
+            <input type="button" value = '-' onclick = "Solve('-')">
+            <br>
+            <input type="button" value = '1' onclick = "Solve('1')">
+            <input type="button" value = '2' onclick = "Solve('2')">
+            <input type="button" value = '3' onclick = "Solve('3')">
+            <input type="button" value = '+' onclick = "Solve('+')">
+            <br>
+            <input type="button" value = '00'onclick = "Solve('00')">
+            <input type="button" value = '0' onclick = "Solve('0')">
+            <input type="button" value = '.' onclick = "Solve('.')">
+            <input type="button" value = '=' onclick = "Result()">
+            
+        </div>
+    </div>
+    <style>
+
+        body{
+            background-color:#f7fafa;
+            display: grid;
+            height: 80vh;
+            place-items: center;
+       
+        }
+
+
+        .display{
+            display: block;
+            margin-top: 10%;
+        }
+
+        .screen input{
+            position: relative;
+            height: 60px;
+            width: 310px;
+            margin-top: 60%;
+            background-color: rgb(219, 226, 226);
+        }
+
+        .screen input{
+
+            text-align: right;
+            padding: 3px 6px;
+            outline: none;
+            font-size: 40px;
+            border:solid black;
+            box-shadow: 5px 5px 10px ;
+            display: flex;
+            margin: auto;
+            border-radius: 6px;
+            color: black;
+        }
+        
+        .display input{
+            position: relative;
+            width: 70px;
+            height: 50px;
+            margin: 5px;
+            box-shadow: 5px 5px 10px ;
+            background-color: rgb(160, 153, 153);
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: bold;
+            border-radius: 16px 16px 16px 16px;
+            border: solid black;
+        }
+
+        .display input:hover{
+         background-color: black;
+         color: white;
+        }
+
+       
+    </style>
+
+</body>
+<script>
+    function Solve(val) {
+       var v = document.getElementById('result');
+       v.value += val;
+    }
+    function Result() {
+       var num1 = document.getElementById('result').value;
+       var num2 = eval(num1);
+       document.getElementById('result').value = num2;
+    }
+    function Clear() {
+       var inp = document.getElementById('result');
+       inp.value = '';
+    }
+    function Back() {
+       var ev = document.getElementById('result');
+       ev.value = ev.value.slice(0,-1);
+    }
+ </script>
+</html>
